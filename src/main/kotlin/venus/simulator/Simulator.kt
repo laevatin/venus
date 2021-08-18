@@ -73,6 +73,8 @@ class Simulator(val linkedProgram: LinkedProgram) {
 
     fun getReg(id: Int) = state.getReg(id)
 
+    fun getVecReg(id : Int) = state.getVecReg(id)
+
     fun setReg(id: Int, v: Int) {
         preInstruction.add(RegisterDiff(id, state.getReg(id)))
         state.setReg(id, v)

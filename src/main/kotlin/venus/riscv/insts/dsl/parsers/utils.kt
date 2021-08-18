@@ -23,6 +23,11 @@ internal fun regNameToNumber(reg: String): Int {
         if (ret in 0..31) return ret
         throw AssemblerError("register $reg not recognized")
     }
+    if (reg.startsWith("v")) {
+        val ret = reg.drop(1).toInt()
+        if (ret in 0..31) return ret
+        throw AssemblerError("register $reg not recognized")
+    }
     return when (reg) {
         "zero" -> 0
         "ra" -> 1
@@ -59,3 +64,4 @@ internal fun regNameToNumber(reg: String): Int {
         else -> throw AssemblerError("register $reg not recognized")
     }
 }
+
